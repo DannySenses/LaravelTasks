@@ -17,4 +17,4 @@ Route::get( "/", function(){
 
     return view( "tasks.list" );
 
-});
+})->name( "home" );
