@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -32,5 +33,11 @@ Route::post( "/create-task", function( Request $request ){
         return redirect( "/" )->withInput()->withErrors( $validator );
 
     }
+
+    $task = new Task;
+    $task->description = $request->task_description;
+    $task->save();
+
+    return redirect( "/" );
 
 });
