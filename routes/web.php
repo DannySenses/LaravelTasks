@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Validator;
 
 Route::get( "/", function(){
 
-    return view( "tasks" );
+    return view( "tasks", [
+        "incomplete_tasks" => Task::where( "completed", false )->orderBy( "created_at", "desc" )->get(),
+        "complete_tasks" => Task::where( "completed" )->orderBy( "created_at", "desc" )->get()
+    ]);
 
 })->name( "home" );
 

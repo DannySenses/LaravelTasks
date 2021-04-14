@@ -12,10 +12,27 @@
 
 /*** Buttons ***/
 .btn {
-    @apply font-semibold py-1 px-2 rounded text-lg;
+    @apply py-1 px-2 rounded;
 }
 
 .btn-blue {
     @apply bg-blue-400 text-white;
 }
 
+.btn-text-lg {
+    @apply text-lg;
+}
+
+/*** Task List ***/
+.task-list {
+    .task {
+        @apply p-2 text-gray-50;
+
+        &:nth-of-type( odd ) {
+            @apply bg-gray-400;
+        }
+        &:nth-of-type( even ) {
+            @apply bg-gray-600
+        }
+    }
+}
