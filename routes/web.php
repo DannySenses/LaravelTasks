@@ -20,6 +20,7 @@ Route::get( "/", function(){
 
     return view( "tasks", [
         "incomplete_tasks" => Task::where( "completed", false )->orderBy( "created_at", "desc" )->get(),
+        "in_progress_tasks" => Task::where( "in_progress" )->orderBy( "created_at", "desc" )->get(),
         "complete_tasks" => Task::where( "completed" )->orderBy( "created_at", "desc" )->get()
     ]);
 
