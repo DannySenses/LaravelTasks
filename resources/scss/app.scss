@@ -39,7 +39,7 @@
         @apply p-2 text-gray-50 my-1;
 
         &:nth-of-type( odd ) {
-            @apply bg-blue-200;
+            @apply bg-blue-200 text-gray-800;
         }
         &:nth-of-type( even ) {
             @apply bg-blue-400;

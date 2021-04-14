@@ -19,7 +19,7 @@ class Task extends Model
     public static function getAllInProgress()
     {
 
-        return self::where( "in_progress", !null )->orderBy( "created_at", "desc" )->get();
+        return self::where( "in_progress", !null )->where( "completed", false )->orderBy( "created_at", "desc" )->get();
 
     }
 

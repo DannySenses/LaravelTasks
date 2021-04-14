@@ -31893,6 +31893,8 @@ video {
 .task-list .task:nth-of-type(odd) {
   --tw-bg-opacity: 1;
   background-color: rgba(191, 219, 254, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
 
 .task-list .task:nth-of-type(even) {
