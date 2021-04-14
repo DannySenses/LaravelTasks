@@ -31844,6 +31844,8 @@ video {
 .btn {
   border-radius: 0.25rem;
   font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   padding-left: 0.5rem;
