@@ -14,19 +14,23 @@
 
 <body>
 
-    <header class="py-2">
+    <div class="container mx-auto">
 
-        <h1 class="text-4xl font-bold">Laravel Tasks</h1>
+        <header class="py-2">
 
-    </header>
+            <h1 class="text-4xl font-bold">Laravel Tasks</h1>
 
-    <section class="page">
+        </header>
 
-        @yield( "content" )
+        <section class="page">
 
-    </section>
+            @yield( "content" )
 
-    <footer></footer>
+        </section>
+
+        <footer></footer>
+
+    </div>
 
 </body>
 

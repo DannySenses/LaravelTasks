@@ -9,3 +9,13 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+
+/*** Buttons ***/
+.btn {
+    @apply font-semibold py-1 px-2 rounded;
+}
+
+.btn-blue {
+    @apply bg-blue-400 text-white;
+}
+
