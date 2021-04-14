@@ -8,9 +8,9 @@
 
     <div class="mt-1 rounded-md shadow shadow-sm p-4 bg-white my-2 task-list incomplete-tasks">
 
-        <h2 class="text-2xl font-semibold">In Progress</h2>
+        <h2>In Progress</h2>
 
-        <hr class="border-blue-400 my-1">
+        <hr>
 
         @if( $incomplete_tasks->count() > 0 )
 
@@ -26,7 +26,7 @@
 
         @else
 
-            <div class="text-center px-8 py-5">
+            <div class="no-tasks">
 
                 <p><strong>You've got no tasks in progress, go you! Add a new task - or take the rest of the day off!</strong></p>
 
@@ -36,11 +36,19 @@
 
     </div>
 
+    <div class="mt-1 rounded-md shadow shadow-sm p-4 bg-white my-2 task-list next-tasks">
+
+        <h2>Up Next</h2>
+
+        <hr>
+
+    </div>
+
     <div class="mt-1 rounded-md shadow shadow-sm p-4 bg-white my-2 task-list completed-tasks">
 
-        <h2 class="text-2xl font-semibold">Completed Tasks</h2>
+        <h2>Completed Tasks</h2>
 
-        <hr class="border-blue-400 my-1">
+        <hr>
 
     </div>
 

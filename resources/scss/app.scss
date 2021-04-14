@@ -9,6 +9,10 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+.container {
+    width: 760px;
+    max-width: 96%;
+}
 
 /*** Buttons ***/
 .btn {
@@ -25,18 +29,23 @@
 
 /*** Task List ***/
 .task-list {
-    hr {
-        @apply mb-3;
+    h2 {
+        @apply text-2xl font-semibold;
     }
-
+    hr {
+        @apply border-blue-400 my-1 mb-3;
+    }
     .task {
         @apply p-2 text-gray-50 my-1;
 
         &:nth-of-type( odd ) {
-            @apply bg-gray-400;
+            @apply bg-blue-200;
         }
         &:nth-of-type( even ) {
-            @apply bg-gray-600
+            @apply bg-blue-400;
         }
+    }
+    .no-tasks {
+        @apply text-center px-8 py-5;
     }
 }

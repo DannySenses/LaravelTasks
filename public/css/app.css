@@ -31839,6 +31839,11 @@ video {
   font-family: "Poppins", sans-serif;
 }
 
+.container {
+  width: 760px;
+  max-width: 96%;
+}
+
 /*** Buttons ***/
 
 .btn {
@@ -31863,7 +31868,17 @@ video {
 
 /*** Task List ***/
 
+.task-list h2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .task-list hr {
+  --tw-border-opacity: 1;
+  border-color: rgba(96, 165, 250, var(--tw-border-opacity));
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
   margin-bottom: 0.75rem;
 }
 
@@ -31877,12 +31892,20 @@ video {
 
 .task-list .task:nth-of-type(odd) {
   --tw-bg-opacity: 1;
-  background-color: rgba(156, 163, 175, var(--tw-bg-opacity));
+  background-color: rgba(191, 219, 254, var(--tw-bg-opacity));
 }
 
 .task-list .task:nth-of-type(even) {
   --tw-bg-opacity: 1;
-  background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+  background-color: rgba(96, 165, 250, var(--tw-bg-opacity));
+}
+
+.task-list .no-tasks {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: center;
 }
 
 @media (min-width: 640px){
