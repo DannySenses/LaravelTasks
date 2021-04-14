@@ -14,7 +14,7 @@ class AddInProgressToTasksTable extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->boolean( "in_progress" );
+            $table->boolean( "in_progress" )->nullable()->default( null );
         });
     }
 
