@@ -14,14 +14,4 @@
 
     </div>
 
-    <div class="mt-1 rounded-md shadow shadow-sm p-2 bg-white my-2">
-
-        <h1 class="text-2xl font-semibold">View Your Tasks</h1>
-
-        <h1 class="text-lg">In Progress</h1>
-
-        <h1 class="text-lg">Completed</h1>
-
-    </div>
-
 </form>
