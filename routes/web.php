@@ -16,17 +16,7 @@ use Illuminate\Support\Facades\Validator;
 |
 */
 
-Route::get( "/", [ \App\Http\Controllers\TaskController::class, "showAll" ])->name( "home" );
-
-Route::get( "/", function(){
-
-    return view( "tasks", [
-        "incomplete_tasks" => Task::where( "completed", false )->where( "in_progress", false )->orWhereNull( "in_progress" )->orderBy( "created_at", "desc" )->get(),
-        "in_progress_tasks" => Task::where( "in_progress", !null )->orderBy( "created_at", "desc" )->get(),
-        "completed_tasks" => Task::where( "completed" )->orderBy( "created_at", "desc" )->get()
-    ]);
-
-})->name( "home" );
+Route::get( "/", [ \App\Http\Controllers\TaskController::class, "index" ])->name( "home" );
 
 Route::post( "/create-task", function( Request $request ){
 
