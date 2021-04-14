@@ -1,5 +1,7 @@
 <form action="/create-task" method="POST" class="my-2">
 
+    @csrf
+
     <div class="mt-1 rounded-md shadow shadow-sm p-2 bg-white my-2">
 
         <h1 class="text-2xl font-semibold">Add a new Task</h1>
