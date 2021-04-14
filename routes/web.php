@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TaskController;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Validator;
 |
 */
 
-Route::get( "/", [ \App\Http\Controllers\TaskController::class, "index" ])->name( "home" );
+Route::get( "/", [ TaskController::class, "index" ])->name( "home" );
 
 Route::post( "/create-task", function( Request $request ){
 
