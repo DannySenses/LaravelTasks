@@ -28,7 +28,7 @@
 
             <div class="no-tasks">
 
-                <p><strong>You've got no tasks in progress, go you! Add a new task - or take the rest of the day off!</strong></p>
+                <p><strong>You've got no tasks in progress, go you! Assign or add a new task - or take the rest of the day off!</strong></p>
 
             </div>
 
@@ -42,6 +42,12 @@
 
         <hr>
 
+        <div class="no-tasks">
+
+            <p><strong>You've got no tasks in progress, go you! Add a new task - or take the rest of the day off!</strong></p>
+
+        </div>
+
     </div>
 
     <div class="mt-1 rounded-md shadow shadow-sm p-4 bg-white my-2 task-list completed-tasks">
@@ -49,6 +55,12 @@
         <h2>Completed Tasks</h2>
 
         <hr>
+
+        <div class="no-tasks">
+
+            <p><strong>You haven't completed any tasks yet!</strong></p>
+
+        </div>
 
     </div>
 
