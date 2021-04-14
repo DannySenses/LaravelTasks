@@ -31863,7 +31863,13 @@ video {
 
 /*** Task List ***/
 
+.task-list hr {
+  margin-bottom: 0.75rem;
+}
+
 .task-list .task {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
   padding: 0.5rem;
   --tw-text-opacity: 1;
   color: rgba(249, 250, 251, var(--tw-text-opacity));

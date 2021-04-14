@@ -25,8 +25,12 @@
 
 /*** Task List ***/
 .task-list {
+    hr {
+        @apply mb-3;
+    }
+
     .task {
-        @apply p-2 text-gray-50;
+        @apply p-2 text-gray-50 my-1;
 
         &:nth-of-type( odd ) {
             @apply bg-gray-400;
