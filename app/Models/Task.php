@@ -9,6 +9,10 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "id"
+    ];
+
     public static function getAllCompleted()
     {
 
@@ -29,4 +33,28 @@ class Task extends Model
         return self::where( "completed", false )->where( "in_progress", false )->orWhereNull( "in_progress" )->orderBy( "created_at", "desc" )->get();
 
     }
+
+    public static function assign( Int $task_id )
+    {
+
+        return self::where( "id", $task_id )->update( ["in_progress" => true] );
+
+    }
+
+    public static function unassign( Int $task_id )
+    {
+
+        return self::where( "id", $task_id )->update( ["in_progress" => false] );
+
+    }
+
+    /*public static function unassign( Int $task_id )
+    {
+
+        $task = Task::where( "id", $task_id )->first();
+        $task->in_progress = false;
+        $task->save();
+
+    }*/
+
 }

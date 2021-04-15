@@ -68,6 +68,10 @@
                             @csrf
                             <button type="submit"><span class="dashed">Assign</span></button>
                         </form>
+                        <form action="/delete-task/{{ $incomplete_task->id }}" method="POST" class="form">
+                            @csrf
+                            <button type="submit"><span><img src="/imgs/close.svg"></span></button>
+                        </form>
                     </span>
 
                 </div>

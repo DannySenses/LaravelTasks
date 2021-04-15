@@ -41,7 +41,7 @@ class TaskController extends Controller
     public function assignTask( Int $task_id )
     {
 
-        $update = Task::where( "id", $task_id )->update( ["in_progress" => true] );
+        Task::assign( $task_id );
 
         return redirect( "/" );
 
@@ -50,7 +50,7 @@ class TaskController extends Controller
     public function undoAssignTask( Int $task_id )
     {
 
-        $update = Task::where( "id", $task_id )->update( ["in_progress" => false] );
+        Task::unassign( $task_id );
 
         return redirect( "/" );
 
