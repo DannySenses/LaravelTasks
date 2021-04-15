@@ -22,15 +22,15 @@
                     <span class="task-buttons">
                         <form action="/undo-assign-task/{{ $task_in_progress->id }}" method="POST" class="form">
                             @csrf
-                            <button type="submit"><span>Unassign</span></button>
+                            <button type="submit"><span class="dashed">Unassign</span></button>
                         </form>
                         <form action="/complete-task/{{ $task_in_progress->id }}" method="POST" class="form">
                             @csrf
-                            <button type="submit"><span><img style="width: 26px; height: 26px;" src="/imgs/check.svg"></span></button>
+                            <button type="submit"><span><img src="/imgs/check.svg"></span></button>
                         </form>
                         <form action="/delete-task/{{ $task_in_progress->id }}" method="POST" class="form">
                             @csrf
-                            <button type="submit"><span><img style="width: 26px; height: 26px;" src="/imgs/cross.svg"></span></button>
+                            <button type="submit"><span><img src="/imgs/close.svg"></span></button>
                         </form>
                     </span>
 
@@ -66,7 +66,7 @@
                     <span class="task-buttons">
                         <form action="/assign-task/{{ $incomplete_task->id }}" method="POST" class="form">
                             @csrf
-                            <button type="submit"><span>Assign</span></button>
+                            <button type="submit"><span class="dashed">Assign</span></button>
                         </form>
                     </span>
 

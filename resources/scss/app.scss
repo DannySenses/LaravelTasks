@@ -42,12 +42,20 @@
             @apply text-right flex content-center;
 
             form {
-                @apply mx-1;
+                @apply mx-1 flex content-center;
 
                 button {
                     span {
-                        @apply text-sm;
-                        border-bottom: 1px dashed gray;
+                        @apply text-sm flex content-center;
+
+                        &.dashed {
+                            border-bottom: 1px dashed gray;
+                        }
+
+                        img {
+                            width: 18px;
+                            height: 18px;
+                        }
                     }
                 }
             }
