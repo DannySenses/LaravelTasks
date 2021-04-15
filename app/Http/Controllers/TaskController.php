@@ -25,14 +25,14 @@ class TaskController extends Controller
     {
 
         $validator = Validator::make( $request->all(), [
-            "task_description" => "required|max:555"
+            "description" => "required|max:555"
         ]);
 
         if ( $validator->fails() )
             return redirect( "/" )->withInput()->withErrors( $validator );
 
         $task = new Task;
-        $task->description = $request->task_description;
+        $task->description = $request->description;
         $task->save();
 
         Cache::forget( "unassigned_tasks" );
