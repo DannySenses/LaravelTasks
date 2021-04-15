@@ -2,10 +2,20 @@
 
 @section( "content" )
 
-    <strong>Whoops, the page you're looking for couldn't be found!</strong>
+    <div class="my-4">
 
-    <p>
-        It looks like you've stumbled on an old or broken link.
-    </p>
+        <strong><span class="text-2xl">Whoops, you got a 404 error!</span></strong>
+
+        <p class="my-3">
+            You've requested a link that doesn't exist. You might have clicked on an outdated or broken link - sorry about that!
+        </p>
+
+        <div class="py-2">
+
+            <a href="/" class="text-blue-400">Return to Tasks</a>
+
+        </div>
+
+    </div>
 
 @endsection
