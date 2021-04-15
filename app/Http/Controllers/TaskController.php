@@ -82,10 +82,7 @@ class TaskController extends Controller
     public function complete( Task $task )
     {
 
-        $task->update( [ "completed" => 1, "completed_at" => Carbon::now() ]);
-
-        Cache::forget( "tasks_in_progress" );
-        Cache::forget( "completed_tasks" );
+        $task->complete();
 
         return redirect( "/" );
 

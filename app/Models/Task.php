@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Task extends Model
 {
@@ -45,6 +47,16 @@ class Task extends Model
             return Task::where("completed", false)->where("in_progress", false)->orWhereNull("in_progress")->orderBy("created_at", "desc")->get();
 
         });
+
+    }
+
+    public function complete()
+    {
+
+        Cache::forget( "tasks_in_progress" );
+        Cache::forget( "completed_tasks" );
+
+        return $this->update( [ "completed" => 1, "completed_at" => Carbon::now() ]);
 
     }
 
