@@ -16,7 +16,7 @@
 
     <div class="container mx-auto">
 
-        <header class="py-2">
+        <header class="py-4">
 
             <h1 class="text-4xl font-bold">Laravel Tasks</h1>
 
