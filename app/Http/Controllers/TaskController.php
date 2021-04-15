@@ -69,10 +69,7 @@ class TaskController extends Controller
     public function unassign( Task $task )
     {
 
-        $task->update( [ "in_progress" => false ] );
-
-        Cache::forget( "tasks_in_progress" );
-        Cache::forget( "unassigned_tasks" );
+        $task->unassign();
 
         return redirect( "/" );
 

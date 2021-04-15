@@ -50,13 +50,23 @@ class Task extends Model
 
     }
 
-    public function complete()
+    public function complete() : bool
     {
 
         Cache::forget( "tasks_in_progress" );
         Cache::forget( "completed_tasks" );
 
         return $this->update( [ "completed" => 1, "completed_at" => Carbon::now() ]);
+
+    }
+
+    public function unassign() : bool
+    {
+
+        Cache::forget( "tasks_in_progress" );
+        Cache::forget( "unassigned_tasks" );
+
+        return $this->update( [ "in_progress" => false ] );
 
     }
 
