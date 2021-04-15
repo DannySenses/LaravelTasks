@@ -21,7 +21,7 @@ class TaskController extends Controller
 
     }
 
-    public function newTask( Request $request )
+    public function new( Request $request )
     {
 
         $validator = Validator::make( $request->all(), [

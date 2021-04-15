@@ -1,10 +1,7 @@
 <?php
 
 use App\Http\Controllers\TaskController;
-use App\Models\Task;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Validator;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +16,7 @@ use Illuminate\Support\Facades\Validator;
 
 Route::get( "/", [ TaskController::class, "index" ])->name( "home" );
 
-Route::post( "/create-task", [ TaskController::class, "newTask" ]);
+Route::post( "/create-task", [ TaskController::class, "new" ]);
 
 Route::post( "/assign-task/{task}", [ TaskController::class, "assign" ]);
 
