@@ -44,11 +44,11 @@ class TaskController extends Controller
     public function delete( Task $task )
     {
 
-        $task->delete();
-
         Cache::forget( "tasks_in_progress" );
         Cache::forget( "unassigned_tasks" );
         Cache::forget( "completed_tasks" );
+
+        $task->delete();
 
         return redirect( "/" );
 
@@ -57,10 +57,7 @@ class TaskController extends Controller
     public function assign( Task $task )
     {
 
-        $task->update( [ "in_progress" => true ] );
-
-        Cache::forget( "tasks_in_progress" );
-        Cache::forget( "unassigned_tasks" );
+        $task->assign();
 
         return redirect( "/" );
 

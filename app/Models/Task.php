@@ -70,4 +70,14 @@ class Task extends Model
 
     }
 
+    public function assign() : bool
+    {
+
+        Cache::forget( "tasks_in_progress" );
+        Cache::forget( "unassigned_tasks" );
+
+        return $this->update( [ "in_progress" => true ] );
+
+    }
+
 }
