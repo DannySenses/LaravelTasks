@@ -19,22 +19,8 @@ use Illuminate\Support\Facades\Validator;
 
 Route::get( "/", [ TaskController::class, "index" ])->name( "home" );
 
-Route::post( "/create-task", function( Request $request ){
+Route::post( "/create-task", [ TaskController::class, "newTask" ]);
 
-    $validator = Validator::make( $request->all(), [
-        "task_description" => "required|max:555"
-    ]);
+Route::post( "/assign-task/{id}", [ TaskController::class, "assignTask" ]);
 
-    if ( $validator->fails() ) {
-
-        return redirect( "/" )->withInput()->withErrors( $validator );
-
-    }
-
-    $task = new Task;
-    $task->description = $request->task_description;
-    $task->save();
-
-    return redirect( "/" );
-
-});
+Route::post( "/undo-assign-task/{id}", [ TaskController::class, "undoAssignTask" ]);

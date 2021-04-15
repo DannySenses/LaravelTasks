@@ -31883,11 +31883,23 @@ video {
 }
 
 .task-list .task {
+  display: flex;
+  justify-content: space-between;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   padding: 0.5rem;
   --tw-text-opacity: 1;
   color: rgba(249, 250, 251, var(--tw-text-opacity));
+}
+
+.task-list .task .task-buttons {
+  text-align: right;
+}
+
+.task-list .task .task-buttons form button span {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-bottom: 1px dashed gray;
 }
 
 .task-list .task:nth-of-type(odd) {
@@ -31908,6 +31920,16 @@ video {
   padding-left: 2rem;
   padding-right: 2rem;
   text-align: center;
+}
+
+.task-list.completed-tasks .task:nth-of-type(odd) {
+  --tw-bg-opacity: 1;
+  background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
+}
+
+.task-list.completed-tasks .task:nth-of-type(even) {
+  --tw-bg-opacity: 1;
+  background-color: rgba(110, 231, 183, var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px){

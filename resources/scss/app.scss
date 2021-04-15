@@ -36,8 +36,20 @@
         @apply border-blue-400 my-1 mb-3;
     }
     .task {
-        @apply p-2 text-gray-50 my-1;
+        @apply p-2 text-gray-50 my-1 flex justify-between;
 
+        .task-buttons {
+            @apply text-right;
+
+            form {
+                button {
+                    span {
+                        @apply text-sm;
+                        border-bottom: 1px dashed gray;
+                    }
+                }
+            }
+        }
         &:nth-of-type( odd ) {
             @apply bg-blue-200 text-gray-800;
         }
@@ -47,5 +59,15 @@
     }
     .no-tasks {
         @apply text-center px-8 py-5;
+    }
+    &.completed-tasks {
+        .task {
+            &:nth-of-type( odd ) {
+                @apply bg-green-200;
+            }
+            &:nth-of-type( even ) {
+                @apply bg-green-300;
+            }
+        }
     }
 }

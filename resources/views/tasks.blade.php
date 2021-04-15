@@ -6,7 +6,7 @@
 
     @include( "includes.create-task-form" )
 
-    <div class="mt-1 rounded-md shadow shadow-sm p-4 bg-white my-2 task-list incomplete-tasks">
+    <div class="mt-1 rounded-md shadow shadow-sm p-4 bg-white my-2 task-list in-progress-tasks">
 
         <h2>In Progress</h2>
 
@@ -18,7 +18,13 @@
 
                 <div class="task" id="task-{{ $task_in_progress->id }}">
 
-                    <h3>{{ $task_in_progress->description }}</h3>
+                    <p>{{ $task_in_progress->description }}</p>
+                    <span class="task-buttons">
+                        <form action="/undo-assign-task/{{ $task_in_progress->id }}" method="POST" class="form">
+                            @csrf
+                            <button type="submit"><span>Unassign</span></button>
+                        </form>
+                    </span>
 
                 </div>
 
@@ -48,7 +54,13 @@
 
                 <div class="task" id="task-{{ $incomplete_task->id }}">
 
-                    <h3>{{ $incomplete_task->description }}</h3>
+                    <p>{{ $incomplete_task->description }}</p>
+                    <span class="task-buttons">
+                        <form action="/assign-task/{{ $incomplete_task->id }}" method="POST" class="form">
+                            @csrf
+                            <button type="submit"><span>Assign</span></button>
+                        </form>
+                    </span>
 
                 </div>
 
@@ -78,7 +90,7 @@
 
                 <div class="task" id="task-{{ $completed_task->id }}">
 
-                    <h3>{{ $completed_task->description }}</h3>
+                    <p>{{ $completed_task->description }}</p>
 
                 </div>
 
