@@ -53,8 +53,7 @@ class Task extends Model
     public function complete() : bool
     {
 
-        Cache::forget( "tasks_in_progress" );
-        Cache::forget( "completed_tasks" );
+        Task::clearCache( [ "tasks_in_progress", "completed_tasks" ] );
 
         return $this->update( [ "completed" => 1, "completed_at" => Carbon::now() ]);
 
@@ -63,8 +62,7 @@ class Task extends Model
     public function unassign() : bool
     {
 
-        Cache::forget( "tasks_in_progress" );
-        Cache::forget( "unassigned_tasks" );
+        Task::clearCache( [ "tasks_in_progress", "unassigned_tasks" ] );
 
         return $this->update( [ "in_progress" => false ] );
 
@@ -73,10 +71,24 @@ class Task extends Model
     public function assign() : bool
     {
 
-        Cache::forget( "tasks_in_progress" );
-        Cache::forget( "unassigned_tasks" );
+        Task::clearCache( [ "tasks_in_progress", "unassigned_tasks" ] );
 
         return $this->update( [ "in_progress" => true ] );
+
+    }
+
+    public static function clearCache( Array $caches )
+    {
+
+        foreach ( $caches as $cache )
+        {
+
+            if ( Cache::has( $cache ) )
+                Cache::forget( $cache );
+
+        }
+
+        return true;
 
     }
 
