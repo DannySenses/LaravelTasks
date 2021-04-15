@@ -27,11 +27,8 @@ class TaskController extends Controller
             "task_description" => "required|max:555"
         ]);
 
-        if ( $validator->fails() ) {
-
+        if ( $validator->fails() )
             return redirect( "/" )->withInput()->withErrors( $validator );
-
-        }
 
         $task = new Task;
         $task->description = $request->task_description;
