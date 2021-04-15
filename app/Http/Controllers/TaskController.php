@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class TaskController extends Controller
 {
@@ -38,28 +39,37 @@ class TaskController extends Controller
 
     }
 
+    public function delete( Task $task )
+    {
+
+        $task->delete();
+
+        return redirect( "/" );
+
+    }
+
     public function assign( Task $task )
     {
 
-        $task->assign();
+        $task->update( [ "in_progress" => true ] );
 
         return redirect( "/" );
 
     }
 
-    public function undoAssignTask( Int $id )
+    public function unassign( Task $task )
     {
 
-        Task::where( "id", $id )->get()->first()->unassign();
+        $task->update( [ "in_progress" => false ] );
 
         return redirect( "/" );
 
     }
 
-    public function deleteTask( Int $id )
+    public function complete( Task $task )
     {
 
-        Task::findOrFail( $id )->delete();
+        $task->update( [ "completed" => 1, "completed_at" => Carbon::now() ]);
 
         return redirect( "/" );
 

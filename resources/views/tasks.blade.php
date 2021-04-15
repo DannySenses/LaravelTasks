@@ -20,7 +20,7 @@
 
                     <p>{{ $task_in_progress->description }}</p>
                     <span class="task-buttons">
-                        <form action="/undo-assign-task/{{ $task_in_progress->id }}" method="POST" class="form">
+                        <form action="/unassign-task/{{ $task_in_progress->id }}" method="POST" class="form">
                             @csrf
                             <button type="submit"><span class="dashed">Unassign</span></button>
                         </form>

@@ -9,14 +9,18 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = "id";
+
     protected $fillable = [
-        "id"
+        "completed",
+        "completed_at",
+        "in_progress"
     ];
 
     public static function getAllCompleted()
     {
 
-        return Task::where( "completed" )->orderBy( "created_at", "desc" )->get();
+        return Task::where( "completed", true )->orderBy( "completed_at", "desc" )->get();
 
     }
 
@@ -30,32 +34,8 @@ class Task extends Model
     public static function getAllNotStarted()
     {
 
-        return Task::where( "completed", false )->where( "in_progress", false )->orWhereNull( "in_progress" )->orderBy( "created_at", "desc" )->get();
+        return Task::where("completed", false)->where("in_progress", false)->orWhereNull("in_progress")->orderBy("created_at", "desc")->get();
 
     }
-
-    public function assign()
-    {
-
-        $this->update( ["in_progress" => true] );
-
-    }
-
-    public function unassign()
-    {
-
-        dd( $this->id );
-        //$this->update( ["in_progress" => false] );
-
-    }
-
-    /*public static function unassign( Int $task_id )
-    {
-
-        return Task::where( "id", $task_id )->first()->update( [ "in_progress", false );
-        //$task->in_progress = false;
-        //$task->save();
-
-    }*/
 
 }

@@ -23,6 +23,8 @@ Route::post( "/create-task", [ TaskController::class, "newTask" ]);
 
 Route::post( "/assign-task/{task}", [ TaskController::class, "assign" ]);
 
-Route::post( "/undo-assign-task/{id}", [ TaskController::class, "undoAssignTask" ]);
+Route::post( "/unassign-task/{task}", [ TaskController::class, "unassign" ]);
 
-Route::delete( "/delete-task/{id}", [ TaskController::class, "deleteTask" ] );
+Route::post( "/complete-task/{task}", [ TaskController::class, "complete" ]);
+
+Route::delete( "/delete-task/{task}", [ TaskController::class, "delete" ]);
