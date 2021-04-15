@@ -38,19 +38,28 @@ class TaskController extends Controller
 
     }
 
-    public function assignTask( Int $task_id )
+    public function assign( Task $task )
     {
 
-        Task::assign( $task_id );
+        $task->assign();
 
         return redirect( "/" );
 
     }
 
-    public function undoAssignTask( Int $task_id )
+    public function undoAssignTask( Int $id )
     {
 
-        Task::unassign( $task_id );
+        Task::where( "id", $id )->get()->first()->unassign();
+
+        return redirect( "/" );
+
+    }
+
+    public function deleteTask( Int $id )
+    {
+
+        Task::findOrFail( $id )->delete();
 
         return redirect( "/" );
 

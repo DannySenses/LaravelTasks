@@ -30,6 +30,7 @@
                         </form>
                         <form action="/delete-task/{{ $task_in_progress->id }}" method="POST" class="form">
                             @csrf
+                            {{ method_field( "DELETE" ) }}
                             <button type="submit"><span><img src="/imgs/close.svg"></span></button>
                         </form>
                     </span>
@@ -70,6 +71,7 @@
                         </form>
                         <form action="/delete-task/{{ $incomplete_task->id }}" method="POST" class="form">
                             @csrf
+                            {{ method_field( "DELETE" ) }}
                             <button type="submit"><span><img src="/imgs/close.svg"></span></button>
                         </form>
                     </span>
@@ -82,7 +84,7 @@
 
             <div class="no-tasks">
 
-                <p><strong>You've got no tasks in progress, go you! Add a new task - or take the rest of the day off!</strong></p>
+                <p><strong>You currently don't have any tasks lined up. Maybe add a new task?</strong></p>
 
             </div>
 

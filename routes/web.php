@@ -21,6 +21,8 @@ Route::get( "/", [ TaskController::class, "index" ])->name( "home" );
 
 Route::post( "/create-task", [ TaskController::class, "newTask" ]);
 
-Route::post( "/assign-task/{id}", [ TaskController::class, "assignTask" ]);
+Route::post( "/assign-task/{task}", [ TaskController::class, "assign" ]);
 
 Route::post( "/undo-assign-task/{id}", [ TaskController::class, "undoAssignTask" ]);
+
+Route::delete( "/delete-task/{id}", [ TaskController::class, "deleteTask" ] );
