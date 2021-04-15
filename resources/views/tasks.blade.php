@@ -105,6 +105,13 @@
                 <div class="task" id="task-{{ $completed_task->id }}">
 
                     <p>{{ $completed_task->description }}</p>
+                    <span class="task-buttons">
+                        <form action="/delete-task/{{ $completed_task->id }}" method="POST" class="form">
+                            @csrf
+                            {{ method_field( "DELETE" ) }}
+                            <button type="submit"><span><img src="/imgs/close.svg"></span></button>
+                        </form>
+                    </span>
 
                 </div>
 

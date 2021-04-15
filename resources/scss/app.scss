@@ -76,7 +76,7 @@
                 @apply bg-green-200;
             }
             &:nth-of-type( even ) {
-                @apply bg-green-300;
+                @apply bg-green-400 text-gray-800;
             }
         }
     }
