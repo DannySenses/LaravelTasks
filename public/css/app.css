@@ -31942,6 +31942,18 @@ video {
   text-align: center;
 }
 
+.task-list.in-progress-tasks .task:nth-of-type(odd) {
+  --tw-bg-opacity: 1;
+  background-color: rgba(245, 158, 11, var(--tw-bg-opacity));
+}
+
+.task-list.in-progress-tasks .task:nth-of-type(even) {
+  --tw-bg-opacity: 1;
+  background-color: rgba(252, 211, 77, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
+}
+
 .task-list.completed-tasks .task:nth-of-type(odd) {
   --tw-bg-opacity: 1;
   background-color: rgba(167, 243, 208, var(--tw-bg-opacity));

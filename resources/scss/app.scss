@@ -70,6 +70,16 @@
     .no-tasks {
         @apply text-center px-8 py-5;
     }
+    &.in-progress-tasks {
+        .task {
+            &:nth-of-type( odd ) {
+                @apply bg-yellow-500;
+            }
+            &:nth-of-type( even ) {
+                @apply bg-yellow-300 text-gray-800;
+            }
+        }
+    }
     &.completed-tasks {
         .task {
             &:nth-of-type( odd ) {
