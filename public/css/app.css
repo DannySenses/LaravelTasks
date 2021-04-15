@@ -31884,6 +31884,7 @@ video {
 
 .task-list .task {
   display: flex;
+  align-content: center;
   justify-content: space-between;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -31893,7 +31894,14 @@ video {
 }
 
 .task-list .task .task-buttons {
+  display: flex;
+  align-content: center;
   text-align: right;
+}
+
+.task-list .task .task-buttons form {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .task-list .task .task-buttons form button span {

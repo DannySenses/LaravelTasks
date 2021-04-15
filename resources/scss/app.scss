@@ -36,12 +36,14 @@
         @apply border-blue-400 my-1 mb-3;
     }
     .task {
-        @apply p-2 text-gray-50 my-1 flex justify-between;
+        @apply p-2 text-gray-50 my-1 flex justify-between content-center;
 
         .task-buttons {
-            @apply text-right;
+            @apply text-right flex content-center;
 
             form {
+                @apply mx-1;
+
                 button {
                     span {
                         @apply text-sm;

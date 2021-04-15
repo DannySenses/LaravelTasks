@@ -24,6 +24,10 @@
                             @csrf
                             <button type="submit"><span>Unassign</span></button>
                         </form>
+                        <form action="/complete-task/{{ $task_in_progress->id }}" method="POST" class="form">
+                            @csrf
+                            <button type="submit"><span><img style="width: 26px; height: 26px;" src="/imgs/check.svg"></span></button>
+                        </form>
                     </span>
 
                 </div>
