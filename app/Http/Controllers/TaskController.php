@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 
@@ -35,6 +36,8 @@ class TaskController extends Controller
         $task->description = $request->task_description;
         $task->save();
 
+        Cache::forget( "unassigned_tasks" );
+
         return redirect( "/" );
 
     }
@@ -43,6 +46,10 @@ class TaskController extends Controller
     {
 
         $task->delete();
+
+        Cache::forget( "tasks_in_progress" );
+        Cache::forget( "unassigned_tasks" );
+        Cache::forget( "completed_tasks" );
 
         return redirect( "/" );
 
@@ -53,6 +60,9 @@ class TaskController extends Controller
 
         $task->update( [ "in_progress" => true ] );
 
+        Cache::forget( "tasks_in_progress" );
+        Cache::forget( "unassigned_tasks" );
+
         return redirect( "/" );
 
     }
@@ -62,6 +72,9 @@ class TaskController extends Controller
 
         $task->update( [ "in_progress" => false ] );
 
+        Cache::forget( "tasks_in_progress" );
+        Cache::forget( "unassigned_tasks" );
+
         return redirect( "/" );
 
     }
@@ -70,6 +83,9 @@ class TaskController extends Controller
     {
 
         $task->update( [ "completed" => 1, "completed_at" => Carbon::now() ]);
+
+        Cache::forget( "tasks_in_progress" );
+        Cache::forget( "completed_tasks" );
 
         return redirect( "/" );
 

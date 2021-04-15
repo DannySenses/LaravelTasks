@@ -18,21 +18,33 @@ class Task extends Model
     public static function getAllCompleted()
     {
 
-        return Task::where( "completed", true )->orderBy( "completed_at", "desc" )->get();
+        return cache()->remember( "completed_tasks", 3600, function(){
+
+            return Task::where( "completed", true )->orderBy( "completed_at", "desc" )->get();
+
+        });
 
     }
 
     public static function getAllInProgress()
     {
 
-        return Task::where( "in_progress", !null )->where( "completed", false )->orderBy( "created_at", "desc" )->get();
+        return cache()->remember( "tasks_in_progress", 3600, function(){
+
+            return Task::where( "in_progress", !null )->where( "completed", false )->orderBy( "created_at", "desc" )->get();
+
+        });
 
     }
 
     public static function getAllNotStarted()
     {
 
-        return Task::where("completed", false)->where("in_progress", false)->orWhereNull("in_progress")->orderBy("created_at", "desc")->get();
+        return cache()->remember( "unassigned_tasks", 3600, function(){
+
+            return Task::where("completed", false)->where("in_progress", false)->orWhereNull("in_progress")->orderBy("created_at", "desc")->get();
+
+        });
 
     }
 
