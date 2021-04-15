@@ -28,6 +28,10 @@
                             @csrf
                             <button type="submit"><span><img style="width: 26px; height: 26px;" src="/imgs/check.svg"></span></button>
                         </form>
+                        <form action="/delete-task/{{ $task_in_progress->id }}" method="POST" class="form">
+                            @csrf
+                            <button type="submit"><span><img style="width: 26px; height: 26px;" src="/imgs/cross.svg"></span></button>
+                        </form>
                     </span>
 
                 </div>
