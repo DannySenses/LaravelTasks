@@ -33,7 +33,7 @@ class Task extends Model
 
         return cache()->remember( "tasks_in_progress", 3600, function(){
 
-            return Task::where( "in_progress", !null )->where( "completed", false )->orderBy( "created_at", "desc" )->get();
+            return Task::where( "in_progress", !null )->where( "completed", false )->latest()->get();
 
         });
 
@@ -44,7 +44,7 @@ class Task extends Model
 
         return cache()->remember( "unassigned_tasks", 3600, function(){
 
-            return Task::where("completed", false)->where("in_progress", false)->orWhereNull("in_progress")->orderBy("created_at", "desc")->get();
+            return Task::where("completed", false)->where("in_progress", false)->orWhereNull("in_progress")->latest()->get();
 
         });
 
