@@ -5,7 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Cache;
+use App\Helpers\Cache;
 
 class Task extends Model
 {
@@ -53,7 +53,7 @@ class Task extends Model
     public function complete() : bool
     {
 
-        Task::clearCache( [ "tasks_in_progress", "completed_tasks" ] );
+        Cache::clear( [ "tasks_in_progress", "completed_tasks" ] );
 
         return $this->update( [ "completed" => 1, "completed_at" => Carbon::now() ]);
 
@@ -62,7 +62,7 @@ class Task extends Model
     public function unassign() : bool
     {
 
-        Task::clearCache( [ "tasks_in_progress", "unassigned_tasks" ] );
+        Cache::clear( [ "tasks_in_progress", "unassigned_tasks" ] );
 
         return $this->update( [ "in_progress" => false ] );
 
@@ -71,24 +71,9 @@ class Task extends Model
     public function assign() : bool
     {
 
-        Task::clearCache( [ "tasks_in_progress", "unassigned_tasks" ] );
+        Cache::clear( [ "tasks_in_progress", "unassigned_tasks" ] );
 
         return $this->update( [ "in_progress" => true ] );
-
-    }
-
-    public static function clearCache( Array $caches )
-    {
-
-        foreach ( $caches as $cache )
-        {
-
-            if ( Cache::has( $cache ) )
-                Cache::forget( $cache );
-
-        }
-
-        return true;
 
     }
 
