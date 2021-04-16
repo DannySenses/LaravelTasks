@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
+use App\Helpers\Cache;
 use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
@@ -44,9 +44,7 @@ class TaskController extends Controller
     public function delete( Task $task )
     {
 
-        Cache::forget( "tasks_in_progress" );
-        Cache::forget( "unassigned_tasks" );
-        Cache::forget( "completed_tasks" );
+        Cache::clear( [ "tasks_in_progress", "unassigned_tasks", "completed_tasks" ] );
 
         $task->delete();
 
